@@ -10,6 +10,8 @@
 	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap"
 		rel="stylesheet">
 	<meta name="description" content="">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 	<link rel="stylesheet" href="./assets/style.css">
 	<script src="script.js" defer></script>
 
@@ -93,6 +95,7 @@
 				<h2>Galerie photo</h2>
 				<div class="modal-gallery"></div>
 				<button class="add-photo-btn">Ajouter une photo</button>
+
 				<button class="delete-gallery-btn">Supprimer la galerie</button>
 			</div>
 
@@ -102,10 +105,26 @@
 				<h2>Ajout photo</h2>
 
 				<form id="add-photo-form">
-					<div class="image-preview"></div>
-					<input type="file" id="photo-input" accept="image/*">
-					<input type="text" id="title-input" placeholder="Titre">
-					<select id="category-input"></select>
+					<div class="upload-zone">
+
+						<div class="image-preview">
+							<img id="preview-img">
+						</div>
+
+						<i class="fa-regular fa-image"></i>
+						<label for="photo-input" class="upload-btn">+ Ajouter photo</label>
+						<input id="photo-input" type="file" accept="image/*" hidden>
+						<p>jpg, png : 4mo max</p>
+
+					</div>
+					<label for="title-input">Titre</label>
+					<input type="text" id="title-input">
+
+					<label for="category-input">Catégorie</label>
+					<select id="category-input">
+						<option value="" disabled selected></option>
+					</select>
+
 					<button type="submit" class="validate-btn">Valider</button>
 				</form>
 			</div>

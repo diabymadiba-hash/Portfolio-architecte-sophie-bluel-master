@@ -84,12 +84,12 @@ time,
 mark,
 audio,
 video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 
 /* HTML5 display-role reset for older browsers */
@@ -104,190 +104,190 @@ hgroup,
 menu,
 nav,
 section {
-	display: block;
+  display: block;
 }
 
 body {
-	line-height: 1;
+  line-height: 1;
 }
 
 ol,
 ul {
-	list-style: none;
+  list-style: none;
 }
 
 blockquote,
 q {
-	quotes: none;
+  quotes: none;
 }
 
 blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-	content: '';
-	content: none;
+  content: '';
+  content: none;
 }
 
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 /** end reset css**/
 body {
-	max-width: 1140px;
-	margin: auto;
-	font-family: 'Work Sans';
-	font-size: 14px;
+  max-width: 1140px;
+  margin: auto;
+  font-family: 'Work Sans';
+  font-size: 14px;
 }
 
 header {
-	display: flex;
-	justify-content: space-between;
-	margin: 50px 0
+  display: flex;
+  justify-content: space-between;
+  margin: 50px 0
 }
 
 section {
-	margin: 50px 0
+  margin: 50px 0
 }
 
 h1 {
-	display: flex;
-	flex-direction: column;
-	font-family: 'Syne';
-	font-size: 22px;
-	font-weight: 800;
-	color: #B1663C
+  display: flex;
+  flex-direction: column;
+  font-family: 'Syne';
+  font-size: 22px;
+  font-weight: 800;
+  color: #B1663C
 }
 
 h1>span {
-	font-family: 'Work Sans';
-	font-size: 10px;
-	letter-spacing: 0.1em;
-	;
+  font-family: 'Work Sans';
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  ;
 }
 
 h2 {
-	font-family: 'Syne';
-	font-weight: 700;
-	font-size: 30px;
-	color: #1D6154
+  font-family: 'Syne';
+  font-weight: 700;
+  font-size: 30px;
+  color: #1D6154
 }
 
 nav ul {
-	display: flex;
-	align-items: center;
-	list-style-type: none;
+  display: flex;
+  align-items: center;
+  list-style-type: none;
 
 }
 
 nav li {
-	padding: 0 10px;
-	font-size: 1.2em;
+  padding: 0 10px;
+  font-size: 1.2em;
 }
 
 li:hover {
-	color: #B1663C;
+  color: #B1663C;
 }
 
 #introduction {
-	display: flex;
-	align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 #introduction figure {
-	flex: 1
+  flex: 1
 }
 
 #introduction img {
-	display: block;
-	margin: auto;
-	width: 80%;
+  display: block;
+  margin: auto;
+  width: 80%;
 }
 
 #introduction article {
-	flex: 1
+  flex: 1
 }
 
 #introduction h2 {
-	margin-bottom: 1em;
+  margin-bottom: 1em;
 }
 
 #introduction p {
-	margin-bottom: 0.5em;
+  margin-bottom: 0.5em;
 }
 
 #portfolio h2 {
-	text-align: center;
-	margin-bottom: 1em;
+  text-align: center;
+  margin-bottom: 1em;
 }
 
 .gallery {
-	width: 100%;
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	grid-column-gap: 20px;
-	grid-row-gap: 20px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
 }
 
 .gallery img {
-	width: 100%;
+  width: 100%;
 
 }
 
 #contact {
-	width: 50%;
-	margin: auto;
+  width: 50%;
+  margin: auto;
 }
 
 #contact>* {
-	text-align: center;
+  text-align: center;
 
 }
 
 #contact h2 {
-	margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 #contact form {
-	text-align: left;
-	margin-top: 30px;
-	display: flex;
-	flex-direction: column;
+  text-align: left;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
 }
 
 #contact input {
-	height: 50px;
-	font-size: 1.2em;
-	border: none;
-	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+  height: 50px;
+  font-size: 1.2em;
+  border: none;
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
 
 #contact label {
-	margin: 2em 0 1em 0;
+  margin: 2em 0 1em 0;
 }
 
 #contact textarea {
-	border: none;
-	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+  border: none;
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
 
 input[type="submit"] {
-	font-family: 'Syne';
-	font-weight: 700;
-	color: white;
-	background-color: #1D6154;
-	margin: 2em auto;
-	width: 180px;
-	text-align: center;
-	border-radius: 60px;
+  font-family: 'Syne';
+  font-weight: 700;
+  color: white;
+  background-color: #1D6154;
+  margin: 2em auto;
+  width: 180px;
+  text-align: center;
+  border-radius: 60px;
 }
 
 footer nav ul {
-	display: flex;
-	justify-content: flex-end;
-	margin: 2em
+  display: flex;
+  justify-content: flex-end;
+  margin: 2em
 }
 
 
@@ -375,13 +375,15 @@ footer nav ul {
 
 /* --- OVERLAY --- */
 .modal-overlay {
-  display: none; /* cachée par défaut */
+  display: none;
+  /* cachée par défaut */
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.6); /* fond sombre */
+  background: rgba(0, 0, 0, 0.6);
+  /* fond sombre */
   justify-content: center;
   align-items: center;
   z-index: 1000;
@@ -399,9 +401,6 @@ footer nav ul {
   align-items: center;
 }
 
-/*.modal-form-screen {
-  display: none;
-}*/
 
 .close-modal {
   position: absolute;
@@ -411,11 +410,6 @@ footer nav ul {
   cursor: pointer;
 }
 
-.modal h2 {
-  font-size: 26px;
-  font-weight: 400;
-  margin-bottom: 30px;
-}
 
 .modal-gallery {
   width: 100%;
@@ -449,17 +443,7 @@ footer nav ul {
   cursor: pointer;
 }
 
-.add-photo-btn {
-  width: 60%;
-  padding: 12px;
-  background: #1D6154;
-  color: white;
-  border: none;
-  border-radius: 25px;
-  font-size: 16px;
-  cursor: pointer;
-  margin-top: 20px;
-}
+
 
 .delete-gallery-btn {
   background: none;
@@ -467,11 +451,6 @@ footer nav ul {
   color: #D65353;
   margin-top: 15px;
   cursor: pointer;
-}
-
-.modal-form-screen {
-  display: none;
-  width: 100%;
 }
 
 .back-arrow {
@@ -491,20 +470,214 @@ footer nav ul {
 
 #add-photo-form input,
 #add-photo-form select {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
+  /*width: 100%;*/
+  padding: 12px;
+  border: none;
+  /* comme la maquette */
   border-radius: 5px;
+  background: white;
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+  /* ombre maquette */
+  font-size: 14px;
 }
 
-.validate-btn {
-  width: 60%;
-  padding: 12px;
-  background: #A7A7A7; /* gris tant que non validé */
+
+
+#portfolio {
+  position: relative;
+}
+
+#portfolio h2 {
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.edit-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  color: #000;
+  position: absolute;
+  top: 8px;
+  right: 50%;
+  transform: translateX(210px);
+}
+
+.edit-btn i {
+  font-size: 16px;
+}
+
+
+.modal h2 {
+  font-size: 26px;
+  font-weight: 400;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+
+
+.add-photo-btn {
+  width: 61%;
+  padding: 9px;
+  background: #1D6154;
   color: white;
   border: none;
   border-radius: 25px;
   font-size: 16px;
   cursor: pointer;
+  display: block;
+  margin: 4px auto 5px;
+  order: 2;
+}
+
+.delete-gallery-btn {
+  display: none;
+}
+
+.back-arrow {
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.upload-zone {
+  width: 100%;
+  height: 180px;
+  background: #E8F1F6;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.upload-zone i {
+  font-size: 60px;
+  color: #B9C5CC;
+  margin-bottom: 10px;
+}
+
+.upload-zone label {
+  background: #CBD6DC;
+  color: #306685;
+  padding: 10px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.upload-zone p {
+  font-size: 12px;
+  color: #444;
+}
+
+.image-preview {
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* indispensable */
+  width: 100%;
+  /* indispensable */
+  height: 180px;
+  /* même hauteur que upload-zone */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+}
+
+.image-preview img {
+  max-width: 80%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+
+#add-photo-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+
+.modal-gallery-screen {
+  display: none;
+  flex-direction: column;
+}
+
+
+#add-photo-form label {
+  font-size: 12px;
+  color: #3D3D3D;
+}
+
+/* --- MODALE AJOUT PHOTO : VERSION PROPRE --- */
+
+.modal-form-screen {
+  display: none;
+  /* caché par défaut */
+  flex-direction: column;
+  width: 70%;
+}
+
+/* Barre grise en premier */
+.modal-form-screen::after {
+  content: "";
+  width: 100%;
+  height: 1px;
+  background: #B3B3B3;
+  margin: 30px 0;
+  order: 2;
+}
+
+
+/* --- STYLE FINAL DU BOUTON VALIDER (AJOUT PHOTO) --- */
+
+.validate-btn {
+  width: 60%;
+  padding: 12px;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  font-family: 'Syne';
+  font-weight: 700;
   margin: 20px auto 0;
+  text-align: center;
+  transition: background 0.3s ease, cursor 0.3s ease;
+  order: 2;
+
+  /* État inactif */
+  background: #A7A7A7;
+  color: white;
+  cursor: not-allowed;
+}
+
+/* État actif (tous les champs remplis) */
+.validate-btn.active {
+  background: #1D6154;
+  cursor: pointer;
+}
+
+/* --- BARRE GRISE POUR LA PREMIÈRE PAGE DE LA MODALE --- */
+
+.modal-gallery-screen::after {
+  content: "";
+  width: 100%;
+  height: 1px;
+  background: #B3B3B3;
+  margin: 30px 0;
+  order: 1;
+  /* La barre doit être avant le bouton */
 }

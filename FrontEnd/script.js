@@ -22,6 +22,29 @@ function displayWorks(works) {
   });
 }
 
+function addWorkToGallery(work) {
+  const gallery = document.querySelector(".gallery");
+
+  // Création du <figure>
+  const figure = document.createElement("figure");
+
+  // Création de l'image
+  const img = document.createElement("img");
+  img.src = work.imageUrl;   // URL renvoyée par l'API
+  img.alt = work.title;      // Titre du projet
+
+  // Création du titre
+  const figcaption = document.createElement("figcaption");
+  figcaption.textContent = work.title;
+
+  // On assemble les éléments
+  figure.appendChild(img);
+  figure.appendChild(figcaption);
+
+  // On ajoute le nouveau projet à la galerie
+  gallery.appendChild(figure);
+}
+
 // 2) Récupération des catégories
 async function getCategories() {
   const response = await fetch("http://localhost:5678/api/categories");
@@ -68,7 +91,7 @@ function setActiveButton(activeBtn) {
 async function init() {
   const worksResponse = await fetch("http://localhost:5678/api/works");
   const works = await worksResponse.json();
-allWorks = works;
+  allWorks = works;
   const categories = await getCategories();
 
   displayFilters(categories, works);
@@ -112,9 +135,26 @@ const modal = document.querySelector(".modal");
 // Ouvrir
 document.getElementById("edit-gallery").addEventListener("click", () => {
   modalOverlay.style.display = "flex";
-   displayModalGallery(allWorks);
+  displayModalGallery(allWorks);
 });
 
+//fonction ajoute un nouveau projet dans la modale*/
+function addWorkToModal(work) {
+  const modalGallery = document.querySelector(".modal-gallery");
+
+  // Création du conteneur du projet
+  const div = document.createElement("div");
+  div.classList.add("modal-item");
+
+  // Structure interne du projet dans la modale
+  div.innerHTML = `
+    <img src="${work.imageUrl}">
+    <i class="fa-solid fa-trash-can delete-icon" data-id="${work.id}"></i>
+  `;
+
+  // On ajoute le projet dans la modale
+  modalGallery.appendChild(div);
+}
 // Fermer
 document.querySelector(".close-modal").addEventListener("click", () => {
   modalOverlay.style.display = "none";
@@ -130,22 +170,20 @@ modalOverlay.addEventListener("click", (e) => {
 
 
 
-
-
-
 /*passer galerie/formulaire*/
 const galleryScreen = document.querySelector(".modal-gallery-screen");
 const formScreen = document.querySelector(".modal-form-screen");
 
 document.querySelector(".add-photo-btn").addEventListener("click", () => {
   galleryScreen.style.display = "none";
-  formScreen.style.display = "block";
+  formScreen.style.display = "flex";  // IMPORTANT
 });
+
 
 /*retout formulaire*/
 document.querySelector(".back-arrow").addEventListener("click", () => {
   formScreen.style.display = "none";
-  galleryScreen.style.display = "block";
+  galleryScreen.style.display = "flex"; // IMPORTANT
 });
 
 /*Afficher les projets dans la modale*/
@@ -169,27 +207,13 @@ function displayModalGallery(allworks) {
 
 
 
-/*Suppression d’un projet*/
-document.addEventListener("click", async (e) => {
-  if (e.target.classList.contains("delete-icon")) {
-    const id = e.target.dataset.id;
-
-    const token = localStorage.getItem("token");
-
-    await fetch(`http://localhost:5678/api/works/${id}`, {
-      method: "DELETE",
-      headers: { "Authorization": `Bearer ${token}` }
-    });
-
-    // Mise à jour du DOM
-    init(); // recharge la galerie principale
-    displayModalGallery(allWorks); // recharge la modale
-  }
-});
 
 document.getElementById("edit-gallery").addEventListener("click", () => {
   modalOverlay.style.display = "flex";
   displayModalGallery(allWorks);
+  galleryScreen.style.display = "flex";   // on affiche la galerie
+  formScreen.style.display = "none";      // on cache le formulaire
+
 });
 
 
@@ -204,10 +228,11 @@ addPhotoForm.addEventListener("submit", async (e) => {
   const title = document.getElementById("title-input").value;
   const category = document.getElementById("category-input").value;
 
-  if (!image || !title || !category) {
+  if (!validateBtn.classList.contains("active")) {
     alert("Merci de remplir tous les champs.");
     return;
   }
+
 
   const formData = new FormData();
   formData.append("image", image);
@@ -223,14 +248,21 @@ addPhotoForm.addEventListener("submit", async (e) => {
   });
 
   if (response.ok) {
-    await init();               // recharge la galerie principale
-    displayModalGallery(allWorks); // recharge la modale
+  const newWork = await response.json(); // On récupère le projet créé
 
-    formScreen.style.display = "none";
-    galleryScreen.style.display = "block";
+  addWorkToGallery(newWork);  // Ajout dans la galerie principale
+  addWorkToModal(newWork);    // Ajout dans la modale
 
-    addPhotoForm.reset();
-  } else {
+  allWorks.push(newWork);     // Mise à jour du tableau global
+
+  addPhotoForm.reset();       // On vide le formulaire
+  previewImg.src = "";
+  previewContainer.style.display = "none";
+
+  formScreen.style.display = "none";   // Retour à la galerie
+  galleryScreen.style.display = "flex";
+}
+ else {
     alert("Erreur lors de l'ajout.");
   }
 });
@@ -255,3 +287,68 @@ async function populateCategorySelect() {
 }
 
 populateCategorySelect();
+const photoInput = document.getElementById("photo-input");
+const previewContainer = document.querySelector(".image-preview");
+const previewImg = document.getElementById("preview-img");
+const uploadZone = document.querySelector(".upload-zone");
+
+photoInput.addEventListener("change", function () {
+  const file = this.files[0];
+
+  if (file) {
+    const imgURL = URL.createObjectURL(file);
+
+    previewImg.src = imgURL;
+    previewContainer.style.display = "block"; // on affiche l'image
+    // NE PAS cacher upload-zone
+  }
+});
+
+const titleInput = document.getElementById("title-input");
+const categoryInput = document.getElementById("category-input");
+const validateBtn = document.querySelector(".validate-btn");
+
+function checkForm() {
+  const imageOK = photoInput.files.length > 0;
+  const titleOK = titleInput.value.trim() !== "";
+  const categoryOK = categoryInput.value !== "";
+
+  if (imageOK && titleOK && categoryOK) {
+    validateBtn.classList.add("active");
+  } else {
+    validateBtn.classList.remove("active");
+  }
+}
+
+// On écoute les changements
+photoInput.addEventListener("change", checkForm);
+titleInput.addEventListener("input", checkForm);
+categoryInput.addEventListener("change", checkForm);
+
+
+
+/*Suppression d’un projet*/
+document.addEventListener("click", async (e) => {
+  if (e.target.classList.contains("delete-icon")) {
+    const id = e.target.dataset.id;
+    const token = localStorage.getItem("token");
+
+    console.log("Suppression id =", id, "avec token =", token);
+
+    const response = await fetch(`http://localhost:5678/api/works/${id}`, {
+      method: "DELETE",
+      headers: { "Authorization": `Bearer ${token}` }
+    });
+
+    if (response.ok) {
+      // Mise à jour du tableau global
+      allWorks = allWorks.filter(work => work.id != id);
+
+      // Mise à jour du DOM
+      displayWorks(allWorks);
+      displayModalGallery(allWorks);
+    } else {
+      console.log("Erreur DELETE :", response.status);
+    }
+  }
+});
