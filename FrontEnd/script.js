@@ -107,26 +107,24 @@ if (token) {
   // Afficher la barre noire
   document.querySelector(".edition-bar").style.display = "block";
 
-  // Afficher les boutons "modifier"
-  document.querySelectorAll(".edit-btn").forEach(btn => {
-    btn.style.display = "inline-block";
+  // Afficher tous les éléments admin
+  document.querySelectorAll(".admin-only").forEach(el => {
+    el.style.display = "flex"; // important pour .edit-btn
   });
 
   // Cacher les filtres
   const filters = document.querySelector(".filters");
-  if (filters) {
-    filters.style.display = "none";
-  }
+  if (filters) filters.style.display = "none";
 
-  // Transformer "login" en "logout"
+  // Transformer login → logout
   const loginLink = document.querySelector("nav ul li:nth-child(3)");
   loginLink.textContent = "logout";
-
   loginLink.addEventListener("click", () => {
     localStorage.removeItem("token");
     window.location.reload();
   });
 }
+
 
 /*ouvrir/fermer la modale*/
 const modalOverlay = document.querySelector(".modal-overlay");
@@ -273,10 +271,13 @@ async function populateCategorySelect() {
   const select = document.getElementById("category-input");
 
   // Option vide par défaut
-  const emptyOption = document.createElement("option");
-  emptyOption.value = "";
-  emptyOption.textContent = "Sélectionnez une catégorie";
-  select.appendChild(emptyOption);
+const emptyOption = document.createElement("option");
+emptyOption.value = "";
+emptyOption.textContent = "Sélectionnez une catégorie";
+emptyOption.disabled = true;
+emptyOption.selected = true;
+emptyOption.hidden = true;
+select.appendChild(emptyOption);
 
   categories.forEach(category => {
     const option = document.createElement("option");

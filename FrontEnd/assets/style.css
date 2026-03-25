@@ -510,6 +510,10 @@ footer nav ul {
   font-size: 16px;
 }
 
+.admin-only {
+  display: none;
+}
+
 
 .modal h2 {
   font-size: 26px;
@@ -680,4 +684,10 @@ footer nav ul {
   margin: 30px 0;
   order: 1;
   /* La barre doit être avant le bouton */
+}
+a, button, .edit-btn, .delete-icon, .add-photo-btn, .filters button, .back-arrow, .close-modal {
+  cursor: pointer;
+}
+nav ul li {
+  cursor: pointer;
 }
