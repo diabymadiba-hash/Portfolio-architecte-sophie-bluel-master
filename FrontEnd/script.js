@@ -6,7 +6,7 @@ function displayWorks(works) {
   gallery.innerHTML = "";
 
   works.forEach(work => {
-    const figure = document.createElement("figure");
+    const figure = document.createElement("figure"); 
 
     const img = document.createElement("img");
     img.src = work.imageUrl;
