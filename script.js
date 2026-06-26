@@ -114,6 +114,9 @@ function setActiveButton(activeBtn) {/* On reçoit le bouton à activer */
 async function init() {/* Fonction d'initialisation appelée au chargement de la page */
   const worksResponse = await fetch("https://portfolio-architecte-sophie-bluel-master-4am1.onrender.com/api/works"); // Appel API
   const works = await worksResponse.json(); // Liste des travaux
+  works.forEach(w => {
+    w.imageUrl = w.imageUrl.replace("http://localhost:5678", "https://portfolio-architecte-sophie-bluel-master-4am1.onrender.com");
+  });
   allWorks = works; // On stocke globalement
 
   const categories = await getCategories(); // On récupère les catégories
