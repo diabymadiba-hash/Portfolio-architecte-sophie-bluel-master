@@ -59,7 +59,7 @@ function addWorkToGallery(work) {/* Cette fonction est utilisée après un POST.
  *************************************************************/
 
 async function getCategories() {
-  const response = await fetch("http://localhost:5678/api/categories"); // Appel API
+  const response = await fetch("https://portfolio-architecte-sophie-bluel-master-4am1.onrender.com/api/categories"); // Appel API
   return await response.json(); // Retourne les catégories
 }
 
@@ -112,7 +112,7 @@ function setActiveButton(activeBtn) {/* On reçoit le bouton à activer */
  *************************************************************/
 
 async function init() {/* Fonction d'initialisation appelée au chargement de la page */
-  const worksResponse = await fetch("http://localhost:5678/api/works"); // Appel API
+  const worksResponse = await fetch("https://portfolio-architecte-sophie-bluel-master-4am1.onrender.com/api/works"); // Appel API
   const works = await worksResponse.json(); // Liste des travaux
   allWorks = works; // On stocke globalement
 
@@ -266,7 +266,7 @@ addPhotoForm.addEventListener("submit", async (e) => {/* Au submit du formulaire
   formData.append("category", category);/* On ajoute la catégorie au FormData avec la clé "category*/
 
   // Envoi API
-  const response = await fetch("http://localhost:5678/api/works", {/* On envoie une requête POST à l'endpoint de création de projet de l'API. */
+  const response = await fetch("https://portfolio-architecte-sophie-bluel-master-4am1.onrender.com/api/works", {/* On envoie une requête POST à l'endpoint de création de projet de l'API. */
     method: "POST",/* La méthode est POST car on crée une nouvelle ressource. */
     headers: {/* On ajoute l'en-tête d'autorisation avec le token pour prouver que l'utilisateur est authentifié. */
       "Authorization": `Bearer ${token}`/* L'API attend un token d'authentification dans l'en-tête Authorization sous la forme "Bearer [token]". */
@@ -392,7 +392,7 @@ document.addEventListener("click", async (e) => {/* On écoute les clics sur tou
     console.log("Suppression id =", id, "avec token =", token);  // Log utile pour vérifier l'ID et le token
 
     // Requête DELETE
-    const response = await fetch(`http://localhost:5678/api/works/${id}`, {/* On envoie une requête DELETE à l'endpoint de suppression de projet de l'API, en incluant l'ID du projet dans l'URL. */
+    const response = await fetch(`https://portfolio-architecte-sophie-bluel-master-4am1.onrender.com/api/works/${id}`, {/* On envoie une requête DELETE à l'endpoint de suppression de projet de l'API, en incluant l'ID du projet dans l'URL. */
       method: "DELETE",/* La méthode est DELETE car on veut supprimer une ressource existante. */
       headers: { "Authorization": `Bearer ${token}` }/* On ajoute l'en-tête d'autorisation avec le token pour prouver que l'utilisateur est authentifié et autorisé à supprimer ce projet. */
     });

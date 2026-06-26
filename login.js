@@ -20,7 +20,7 @@ form.addEventListener("submit", async (event) => {/* On écoute l'événement de
   const password = document.getElementById("password").value;
 
   // Requête POST vers l'API de login
-  const response = await fetch("http://localhost:5678/api/users/login", {
+  const response = await fetch("https://portfolio-architecte-sophie-bluel-master-4am1.onrender.com/api/users/login", {
     method: "POST",/* On spécifie que c'est une requête POST */
     headers: { "Content-Type": "application/json" },/* On indique que les données sont au format JSON */
     body: JSON.stringify({ email, password }) // On envoie les identifiants
